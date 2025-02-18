@@ -2,6 +2,161 @@
 <html lang="en">
     <head></head>
     <body>
-        <p>Testing site</p>
+        <nav id="navbar">
+            <header>Version Control Best Practices with Git</header>
+            <ul>
+                <li>
+                    <a class="nav-link" href="#Introduction">Introduction</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Setting-Up-a-Git-Repository">Setting Up a Git Repository</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Writing-and-Managing-Commits">Writing and Managing Commits</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Branching-and-Merging-Strategy">Branching and Merging Strategy</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Handling-Syncing-and-Conflicts">Handling Syncing and Conflicts</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Undoing-Changes-and-Reverting-Mistakes">Undoing Changes and Reverting Mistakes</a>
+                </li>
+                <li>
+                    <a class="nav-link" href="#Conclusion">Conclusion</a>
+                </li>
+            </ul>
+        </nav>
+        <main id="main-doc">
+            <section class="main-section" id="Introduction">
+                <header>Introduction</header>
+                <article>
+                    <p>Version control is essential for managing code changes, collaborating effectively, and maintaining a clean project 
+                        history. Git, a distributed version control system, enables developers to track changes, revert to previous states, 
+                        and work in teams efficiently. This guide covers best practices for using Git effectively.
+                    </p>
+                </article>
+            </section>
+            <section class="main-section" id="Setting-Up-a-Git-Repository">
+                <header>Setting Up a Git Repository</header>
+                <article>
+                    <ol>
+                        <li>
+                            <p>Install Git (if not already installed) from <a href="https://git-scm.com/">git-scm.com</a>.</p>
+                        </li>
+                        <li>
+                            <p>Initialize a new repository in a project folder:</p>
+                            <code>git init</code>
+                        </li>
+                        <li>
+                            <p>Clone an existing repository from a remote source:</p>
+                            <code>git clone &lt;repository_url&gt;</code>
+                        </li>
+                        <li>
+                            <p>Set up user identity to track commits properly:</p>
+                            <code>
+                                git config --global user.name "Your Name"<br>
+                                git config --global user.email "your.email@example.com"
+                            </code>
+                        </li>
+                        <li>
+                            <p>Use a .gitignore file to prevent tracking unnecessary files, such as:</p>
+                            <code>
+                                node_modules/<br>
+                                *.log<br>
+                                .DS_Store
+                            </code>
+                        </li>
+                    </ol>
+                </article>
+            </section>
+            <section class="main-section" id="Writing-and-Managing-Commits">
+                <header>Writing and Managing Commits</header>
+                <article>
+                    <p>
+                        Commit frequently to keep changes small and manageable.
+                    </p>
+                    <p>Write clear, concise commit messages. Example:</p>
+                    <code>
+                        git commit -m "Fix login issue by updating authentication method"
+                    </code>
+                    <p>Stage only relevant changes before committing:</p>
+                    <code>
+                        git add &lt;file1&gt; &lt;file2&gt;<br>
+                        git commit -m "Improve error handling in API calls"                            
+                    </code>
+                    <p>Use git commit --amend to fix the last commit (if not pushed yet).</p>
+                    <code>git commit --amend</code>
+                </article>
+            </section>
+            <section class="main-section" id="Branching-and-Merging-Strategy">
+                <header>Branching and Merging Strategy</header>
+                <article>
+                    <p>Always create a new branch for features or bug fixes:</p>
+                    <code>
+                        git checkout -b feature/new-feature
+                    </code>
+                    <p>Merge changes using pull requests (PRs) to ensure review before merging.</p>
+                    <p>Delete old branches after merging to keep the repository clean:</p>
+                    <code>
+                        git branch -d feature/old-branch
+                    </code>
+                    <p>
+                        Use git pull --rebase instead of merge when appropriate to keep history clean.
+                    </p>
+                    <code>git pull --rebase</code>
+                </article>
+            </section>
+            <section class="main-section" id="Handling-Syncing-and-Conflicts">
+                <header>Handling Syncing and Conflicts</header>
+                <article>
+                    <p>Pull changes before making new commits to avoid merge issues:</p>
+                    <code>
+                        git pull origin main
+                    </code>
+                    <p>Fetch remote changes without merging immediately:</p>
+                    <code>
+                        git fetch origin
+                    </code>
+                    <p>Resolve conflicts manually, then mark files as resolved:</p>
+                    <code>
+                        git add resolved_file.txt<br>
+                        git commit -m "Resolve merge conflict"
+                    </code>
+                </article>
+            </section>
+            <section class="main-section" id="Undoing-Changes-and-Reverting-Mistakes">
+                <header>Undoing Changes and Reverting Mistakes</header>
+                <article>
+                    <p>Undo the last commit without losing changes:</p>
+                    <code>
+                        git reset --soft HEAD~1
+                    </code>
+                    <p>Revert a pushed commit safely:</p>
+                    <code>
+                        git revert &lt;commit_hash&gt;
+                    </code>
+                    <p>Discard unstaged changes:</p>
+                    <code>
+                        git checkout -- filename
+                    </code>
+                    <p>Tag releases to mark stable versions:</p>
+                    <code>
+                        git tag -a v1.0 -m "First stable release"<br>
+                        git push origin v1.0
+                    </code>
+                </article>
+            </section>
+            <section class="main-section" id="Conclusion">
+                <header>Conclusion</header>
+                <article>
+                    <p>
+                        Following these Git best practices ensures a smooth workflow, making collaboration easier and keeping 
+                        your project history clean. Stick to meaningful commits, use branches wisely, and handle conflicts properly.
+                    </p>
+                </article>
+            </section>
+        </main>
     </body>
 </html>
